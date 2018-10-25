@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol UpdateTask {
+    func updateTask(name: String, indexPathRow: Int?)
+}
+
 class UpdateViewController: UIViewController {
     
     @IBOutlet weak var updateTextField: UITextField!
     
-//    var updateName: String?
+    var delegate: UpdateTask?
+    var indexPath: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +26,7 @@ class UpdateViewController: UIViewController {
     }
     
     @IBAction func updateButtonPress(_ sender: Any) {
-//        print(updateName!)
-//        updateName = updateTextField.text!
-//        print(updateName!)
+        delegate?.updateTask(name: updateTextField.text!, indexPathRow: indexPath)
         navigationController?.popViewController(animated: true)
     }
     

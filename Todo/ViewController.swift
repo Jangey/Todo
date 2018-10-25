@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewTask, CheckButton  {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewTask, CheckButton, UpdateTask {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,7 +19,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view, typically from a nib.
         tasks.append(Task(name: "test"))
     }
-
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
@@ -81,16 +80,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     
+    func updateTask(name: String, indexPathRow: Int?) {
+        tasks[indexPathRow!].name = name
+        tableView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "updateSegue" {
-//            let cell = sender as! UITableViewCell
-//            if let indexPath = tableView.indexPath(for: cell) {
-//                let vc = segue.destination as! UpdateViewController
-//                tasks[indexPath.row].name = vc.updateName!
-//            }
-        } else {
-            let vc = segue.destination as! NewTodoListViewController
-            vc.delegate = self
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                
+                let UpdateVC = segue.destination as! UpdateViewController
+                
+                UpdateVC.indexPath = indexPath.row
+                UpdateVC.delegate = self
+
+            }
+                
+        }
+        
+        if segue.identifier == "newSegue" {
+            let newTodoListVC = segue.destination as! NewTodoListViewController
+            newTodoListVC.delegate = self
         }
     }
 }

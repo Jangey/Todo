@@ -87,7 +87,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="slf-iZ-6BT">
                             <connections>
-                                <segue destination="mVY-CA-Y2W" kind="show" id="zON-jw-KHi"/>
+                                <segue destination="mVY-CA-Y2W" kind="show" identifier="newSegue" id="zON-jw-KHi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
