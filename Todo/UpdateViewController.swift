@@ -1,32 +1,29 @@
 //
-//  NewTodoListViewController.swift
+//  UpdateViewController.swift
 //  Todo
 //
-//  Created by Jangey Lu on 10/24/18.
+//  Created by Jangey Lu on 10/25/18.
 //  Copyright © 2018 Jangey Lu. All rights reserved.
 //
 
 import UIKit
 
-protocol NewTask {
-    func newTask(name: String)
-}
-
-class NewTodoListViewController: UIViewController {
+class UpdateViewController: UIViewController {
     
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var updateTextField: UITextField!
     
-    var delegate: NewTask?
+//    var updateName: String?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addPress(_ sender: Any) {
-        delegate?.newTask(name: textField.text!)
+    @IBAction func updateButtonPress(_ sender: Any) {
+//        print(updateName!)
+//        updateName = updateTextField.text!
+//        print(updateName!)
         navigationController?.popViewController(animated: true)
     }
     

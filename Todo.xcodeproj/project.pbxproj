@@ -16,6 +16,7 @@
 		4EDA1F1A21813F9500D6FA3B /* TodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1F1921813F9500D6FA3B /* TodoUITests.swift */; };
 		4EDA1F282181407000D6FA3B /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1F272181407000D6FA3B /* TodoCell.swift */; };
 		4EDA1F2A2181447A00D6FA3B /* NewTodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1F292181447A00D6FA3B /* NewTodoListViewController.swift */; };
+		4EDA1F2C2181BC5200D6FA3B /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1F2B2181BC5200D6FA3B /* UpdateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		4EDA1F1B21813F9500D6FA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDA1F272181407000D6FA3B /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		4EDA1F292181447A00D6FA3B /* NewTodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoListViewController.swift; sourceTree = "<group>"; };
+		4EDA1F2B2181BC5200D6FA3B /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				4EDA1F0521813F9400D6FA3B /* Info.plist */,
 				4EDA1F272181407000D6FA3B /* TodoCell.swift */,
 				4EDA1F292181447A00D6FA3B /* NewTodoListViewController.swift */,
+				4EDA1F2B2181BC5200D6FA3B /* UpdateViewController.swift */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				4EDA1F2A2181447A00D6FA3B /* NewTodoListViewController.swift in Sources */,
 				4EDA1F282181407000D6FA3B /* TodoCell.swift in Sources */,
 				4EDA1EFA21813F9400D6FA3B /* AppDelegate.swift in Sources */,
+				4EDA1F2C2181BC5200D6FA3B /* UpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

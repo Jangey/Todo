@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewTask, CheckButton {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewTask, CheckButton  {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -50,6 +50,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    // moving the cell
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let taskObject = tasks[sourceIndexPath.item]
+        tasks.remove(at: sourceIndexPath.item)
+        tasks.insert(taskObject, at: destinationIndexPath.item)
+    }
+    
+    // delect the cell
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            tasks.remove(at: indexPath.item)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    @IBAction func editButton(_ sender: UIBarButtonItem) {
+        self.tableView.isEditing = !self.tableView.isEditing
+        sender.title = (self.tableView.isEditing) ? "Done" : "Edit"
+    }
+    
+    
     func newTask(name: String) {
         tasks.append(Task(name: name))
         tableView.reloadData()
@@ -61,8 +82,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! NewTodoListViewController
-        vc.delegate = self
+        if segue.identifier == "updateSegue" {
+//            let cell = sender as! UITableViewCell
+//            if let indexPath = tableView.indexPath(for: cell) {
+//                let vc = segue.destination as! UpdateViewController
+//                tasks[indexPath.row].name = vc.updateName!
+//            }
+        } else {
+            let vc = segue.destination as! NewTodoListViewController
+            vc.delegate = self
+        }
     }
 }
 
