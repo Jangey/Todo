@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewTask {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewTask, CheckButton {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,11 +29,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoCell
         cell.todoListLabel.text = tasks[indexPath.row].name
         
+        //update when list check or uncheck
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: tasks[indexPath.row].name)
+        if tasks[indexPath.row].checked {
+            // strickthroughtStyle if checked
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+            
+            cell.todoListLabel.attributedText = attributeString
+            cell.checkButton.setTitle("\u{2705}", for: .normal) // U+2705 ✅ GREEN HEAVY CHECK MARK
+        } else {
+            // uncheck list adn un-do strikethrought style
+            cell.todoListLabel.attributedText = attributeString
+            cell.checkButton.setTitle("\u{2753}", for: .normal) // ❓, Unicode scalar U+2753
+        }
+        
+        cell.delegate = self
+        cell.currentIndex = indexPath.row
+        cell.tasks = tasks
+        
         return cell
     }
     
     func newTask(name: String) {
         tasks.append(Task(name: name))
+        tableView.reloadData()
+    }
+    
+    func checkButton(checked: Bool, index: Int?) {
+        tasks[index!].checked = checked
         tableView.reloadData()
     }
     
@@ -45,7 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 class Task {
     var name = ""
-    var check = false
+    var checked = false
     
     convenience init(name: String) {
         self.init()

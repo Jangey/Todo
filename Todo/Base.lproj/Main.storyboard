@@ -28,22 +28,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0l-o1-O5b">
-                                                    <rect key="frame" x="15" y="6" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0l-o1-O5b">
+                                                    <rect key="frame" x="10" y="5" width="77" height="30"/>
+                                                    <state key="normal" title="Incomplete"/>
                                                     <connections>
                                                         <action selector="checkPress:" destination="c1k-jh-I2D" eventType="touchUpInside" id="cWn-20-hEx"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Uncomplete List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39U-KB-Z1G">
-                                                    <rect key="frame" x="69" y="11" width="125" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uncomplete List" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39U-KB-Z1G">
+                                                    <rect key="frame" x="97" y="10" width="125" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Q0l-o1-O5b" firstAttribute="leading" secondItem="2at-iK-EZE" secondAttribute="leading" constant="10" id="DkJ-UI-qLm"/>
+                                                <constraint firstItem="39U-KB-Z1G" firstAttribute="leading" secondItem="Q0l-o1-O5b" secondAttribute="trailing" constant="10" id="KTc-09-4Rk"/>
+                                                <constraint firstItem="Q0l-o1-O5b" firstAttribute="top" secondItem="2at-iK-EZE" secondAttribute="top" constant="5" id="RmN-ep-RWl"/>
+                                                <constraint firstItem="39U-KB-Z1G" firstAttribute="top" secondItem="2at-iK-EZE" secondAttribute="top" constant="10" id="YmB-tz-ODm"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Q0l-o1-O5b" secondAttribute="bottom" constant="5" id="kFU-Fc-QNr"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="39U-KB-Z1G" secondAttribute="bottom" constant="5" id="oJ1-pj-TBH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkButton" destination="Q0l-o1-O5b" id="n1u-Ar-g7a"/>
