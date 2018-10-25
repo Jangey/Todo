@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NewTask {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var tasks: [Task] = []
    
@@ -28,6 +30,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.todoListLabel.text = tasks[indexPath.row].name
         
         return cell
+    }
+    
+    func newTask(name: String) {
+        tasks.append(Task(name: name))
+        tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! NewTodoListViewController
+        vc.delegate = self
     }
 }
 
