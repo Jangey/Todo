@@ -23,6 +23,7 @@ class NewTodoListViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationItem.title = "New Todo List"
     }
     
     @IBAction func addPress(_ sender: Any) {

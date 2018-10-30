@@ -23,6 +23,7 @@ class UpdateViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationItem.title = "Update Todo List"
     }
     
     @IBAction func updateButtonPress(_ sender: Any) {

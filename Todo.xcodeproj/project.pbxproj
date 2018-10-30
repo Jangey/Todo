@@ -114,12 +114,12 @@
 			isa = PBXGroup;
 			children = (
 				4EA54A2F2187CEAA00631522 /* ViewControllers */,
+				4EDA1F272181407000D6FA3B /* TodoCell.swift */,
 				4EDA1EF921813F9400D6FA3B /* AppDelegate.swift */,
 				4EDA1EFD21813F9400D6FA3B /* Main.storyboard */,
 				4EDA1F0021813F9400D6FA3B /* Assets.xcassets */,
 				4EDA1F0221813F9400D6FA3B /* LaunchScreen.storyboard */,
 				4EDA1F0521813F9400D6FA3B /* Info.plist */,
-				4EDA1F272181407000D6FA3B /* TodoCell.swift */,
 			);
 			path = Todo;
 			sourceTree = "<group>";

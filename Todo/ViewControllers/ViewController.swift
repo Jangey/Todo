@@ -17,7 +17,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tasks.append(Task(name: "test"))
+        
+        // retrive data from UserDefaults
+        if let dataFromStorage = UserDefaults.standard.object(forKey: "storeData") {
+            let personFromStorage = try! JSONDecoder().decode([Task].self, from: dataFromStorage as! Data)
+            tasks = personFromStorage
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,13 +59,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let taskObject = tasks[sourceIndexPath.item]
         tasks.remove(at: sourceIndexPath.item)
         tasks.insert(taskObject, at: destinationIndexPath.item)
+        
+        // store data to UserDefaults
+        let encoded = try! JSONEncoder().encode(tasks)
+        UserDefaults.standard.set(encoded, forKey: "storeData")
     }
     
-    // delect the cell
+    // delete the cell
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             tasks.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            // store data to UserDefaults
+            let encoded = try! JSONEncoder().encode(tasks)
+            UserDefaults.standard.set(encoded, forKey: "storeData")
         }
     }
     
@@ -73,16 +86,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func newTask(name: String) {
         tasks.append(Task(name: name))
         tableView.reloadData()
+        
+        // store data to UserDefaults
+        let encoded = try! JSONEncoder().encode(tasks)
+        UserDefaults.standard.set(encoded, forKey: "storeData")
+
     }
     
     func checkButton(checked: Bool, index: Int?) {
         tasks[index!].checked = checked
         tableView.reloadData()
+        
+        // store data to UserDefaults
+        let encoded = try! JSONEncoder().encode(tasks)
+        UserDefaults.standard.set(encoded, forKey: "storeData")
     }
     
     func updateTask(name: String, indexPathRow: Int?) {
         tasks[indexPathRow!].name = name
         tableView.reloadData()
+        
+        // store data to UserDefaults
+        let encoded = try! JSONEncoder().encode(tasks)
+        UserDefaults.standard.set(encoded, forKey: "storeData")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,7 +132,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 }
 
-class Task {
+class Task: Codable {
     var name = ""
     var checked = false
     
@@ -114,4 +140,5 @@ class Task {
         self.init()
         self.name = name
     }
+    
 }
