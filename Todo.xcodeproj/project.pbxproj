@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E94063F218B1A39009A7364 /* CheckedTodoListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E94063E218B1A39009A7364 /* CheckedTodoListTest.swift */; };
+		4E940641218B1D9A009A7364 /* UpdateTodoListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E940640218B1D9A009A7364 /* UpdateTodoListTest.swift */; };
+		4EA54A312187E8E200631522 /* NewTodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA54A302187E8E200631522 /* NewTodoListTests.swift */; };
 		4EDA1EFA21813F9400D6FA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1EF921813F9400D6FA3B /* AppDelegate.swift */; };
 		4EDA1EFC21813F9400D6FA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA1EFB21813F9400D6FA3B /* ViewController.swift */; };
 		4EDA1EFF21813F9400D6FA3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EDA1EFD21813F9400D6FA3B /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E94063E218B1A39009A7364 /* CheckedTodoListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckedTodoListTest.swift; sourceTree = "<group>"; };
+		4E940640218B1D9A009A7364 /* UpdateTodoListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTodoListTest.swift; sourceTree = "<group>"; };
+		4EA54A302187E8E200631522 /* NewTodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoListTests.swift; sourceTree = "<group>"; };
 		4EDA1EF621813F9400D6FA3B /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDA1EF921813F9400D6FA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EDA1EFB21813F9400D6FA3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				4EDA1F0E21813F9400D6FA3B /* TodoTests.swift */,
+				4EA54A302187E8E200631522 /* NewTodoListTests.swift */,
+				4E94063E218B1A39009A7364 /* CheckedTodoListTest.swift */,
+				4E940640218B1D9A009A7364 /* UpdateTodoListTest.swift */,
 				4EDA1F1021813F9500D6FA3B /* Info.plist */,
 			);
 			path = TodoTests;
@@ -285,6 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E940641218B1D9A009A7364 /* UpdateTodoListTest.swift in Sources */,
+				4EA54A312187E8E200631522 /* NewTodoListTests.swift in Sources */,
+				4E94063F218B1A39009A7364 /* CheckedTodoListTest.swift in Sources */,
 				4EDA1F0F21813F9400D6FA3B /* TodoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
