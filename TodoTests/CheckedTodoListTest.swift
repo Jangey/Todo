@@ -20,7 +20,7 @@ class CheckedTodoListTest: XCTestCase {
         tasks[1].checked = true
     }
     
-    func test_incompleteTodoChecked() {
+    func test_uncompleteTodoChecked() {
         
         XCTAssertFalse(tasks[0].checked)
     }
