@@ -21,13 +21,20 @@ class NewTodoListTests: XCTestCase {
     }
     
     func test_addNewTodoList() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
         let result = "Buy lunch"
         
         XCTAssertEqual(tasks[0].name, result)
         XCTAssertFalse(tasks[0].checked)
+    }
+    
+    func test_addEmpty() {
+        let tasksSize = tasks.count
+        
+        // Try to add Empty List
+        tasks.append(Task(name: ""))
+        
+        // the size of tasks still 1, after tried to add empty todo list.
+        XCTAssertEqual(tasksSize, Int("1"))
     }
     
 }

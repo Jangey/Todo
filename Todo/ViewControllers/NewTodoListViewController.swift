@@ -27,8 +27,20 @@ class NewTodoListViewController: UIViewController {
     }
     
     @IBAction func addPress(_ sender: Any) {
-        delegate?.newTask(name: textField.text!)
-        navigationController?.popViewController(animated: true)
+        if textField.text == "" {
+            // Alert User it's empty input
+            let alertController = UIAlertController(title: "Add New Todo List Fail", message: "Check the todo list is not empty, please try again!", preferredStyle: .alert)
+            
+            present(alertController, animated: false) {
+                let OKAction = UIAlertAction(title: "Try Agian", style: .default) { (action) in
+                }
+                alertController.addAction(OKAction)
+            }
+        } else {
+            // Check the new list is not empty
+            delegate?.newTask(name: textField.text!)
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     /*
